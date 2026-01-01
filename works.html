@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bimage | Works</title>
+
+  <!-- フォント -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      color: #111;
+    }
+
+    /* ===== Header ===== */
+    header {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1000px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #111;
+    }
+
+    /* ===== Main ===== */
+    main {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .works {
+      width: 100%;
+      max-width: 800px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .works h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    /* ===== Works List ===== */
+    .work-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .work-left {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .work-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .work-desc {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .work-year {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 768px) {
+      .work-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Bimage</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="works.html">Works</a>
+    <a href="profile.html">Profile</a>
+    <a href="news.html">News</a>
+  </nav>
+</header>
+
+<main>
+  <div class="works">
+    <h2>Works</h2>
+
+    <div class="work-item">
+      <div class="work-left">
+        <div class="work-title">Portfolio Website</div>
+        <div class="work-desc">個人プロフィールサイトの制作</div>
+      </div>
+      <div class="work-year">2026</div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-left">
+        <div class="work-title">Game UI Design</div>
+        <div class="work-desc">ゲーム用UIデザイン練習</div>
+      </div>
+      <div class="work-year">2025</div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-left">
+        <div class="work-title">3D Modeling</div>
+        <div class="work-desc">Blender / Blockbench モデリング</div>
+      </div>
+      <div class="work-year">2025</div>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>
 
