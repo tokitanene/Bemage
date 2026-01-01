@@ -1,0 +1,109 @@
+/* ===== Reset & Base ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Noto Sans JP", system-ui, sans-serif;
+  background: #fafafa;
+  color: #111;
+}
+
+/* ===== Header ===== */
+.header {
+  height: 72px;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #666;
+  font-weight: 500;
+}
+
+.nav a.active {
+  color: #111;
+}
+
+/* ===== Hero (Center Area) ===== */
+.hero {
+  height: calc(100vh - 72px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.icon {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+h1 {
+  margin: 24px 0 8px;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #666;
+  letter-spacing: 0.08em;
+}
+
+/* ===== SNS ===== */
+.sns {
+  margin-top: 24px;
+  display: flex;
+  gap: 24px;
+}
+
+.sns a {
+  text-decoration: none;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.sns a:hover {
+  color: #111;
+}
+
+/* ===== Pages (Profile / Works / News) ===== */
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 96px 40px;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 640px) {
+  .header {
+    padding: 0 24px;
+  }
+
+  .icon {
+    width: 150px;
+    height: 150px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+}
