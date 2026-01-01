@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bimage | Works</title>
 
-  <!-- Fonts -->
+  <!-- フォント -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -23,62 +23,83 @@
       color: #111;
     }
 
+    /* ===== Header（Homeと同一） ===== */
     header {
-      padding: 40px 20px;
-      text-align: center;
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1000px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     header h1 {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: 600;
     }
 
-    nav {
-      margin-top: 10px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
     nav a {
+      margin-left: 20px;
       text-decoration: none;
       color: #666;
-      font-weight: 500;
+      font-size: 0.95rem;
     }
+
     nav a:hover {
       color: #111;
     }
 
+    /* ===== Main ===== */
     main {
-      max-width: 1024px;
-      margin: 60px auto;
-      padding: 0 20px;
+      min-height: 100vh;
+      padding: 160px 20px 80px;
+      display: flex;
+      justify-content: center;
     }
 
-    h2 {
+    .works {
+      width: 100%;
+      max-width: 1000px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .works h2 {
       font-size: 2rem;
       font-weight: 700;
-      text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
+    /* ===== Grid ===== */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
     }
 
     .work-card {
       background: #fff;
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .work-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     }
 
     .work-card img {
@@ -89,11 +110,11 @@
     }
 
     .work-info {
-      padding: 14px 16px;
+      padding: 16px 18px;
     }
 
     .work-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       margin-bottom: 6px;
     }
@@ -101,6 +122,13 @@
     .work-desc {
       font-size: 0.9rem;
       color: #666;
+    }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 768px) {
+      main {
+        padding-top: 140px;
+      }
     }
   </style>
 </head>
@@ -118,38 +146,35 @@
 </header>
 
 <main>
-  <h2>Works</h2>
+  <section class="works">
+    <h2>Works</h2>
 
-  <div class="grid">
-    <!-- Discord Bot -->
-    <div class="work-card">
-      <img src="works1.jpg" alt="作品1">
-      <div class="work-info">
-        <div class="work-title">複数のサポートに対応したチケットボットの作成</div>
-        <div class="work-desc">2026/4月公開予定 Jeous公式Discordサーバーで導入予定。</div>
+    <div class="grid">
+      <div class="work-card">
+        <img src="works1.jpg" alt="Work 1">
+        <div class="work-info">
+          <div class="work-title">Portfolio Website</div>
+          <div class="work-desc">個人サイトのデザイン・実装</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <img src="works2.jpg" alt="Work 2">
+        <div class="work-info">
+          <div class="work-title">Game UI Design</div>
+          <div class="work-desc">UIデザイン練習</div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <img src="works3.jpg" alt="Work 3">
+        <div class="work-info">
+          <div class="work-title">3D Modeling</div>
+          <div class="work-desc">Blender / Blockbench</div>
+        </div>
       </div>
     </div>
-
-    <!-- Minecraft -->
-    <div class="work-card">
-      <img src="works2.jpg" alt="作品2">
-      <div class="work-info">
-        <div class="work-title">作Jeous Server Owner</div>
-        <div class="work-desc">2026/4月に公開予定のアジア初競技性の高いミニゲームサーバーでゲーム制作に携わりOwnerに就任します。</div>
-      </div>
-    </div>
-
-    <!-- 作品3 -->
-    <div class="work-card">
-      <img src="works3.jpg" alt="作品3">
-      <div class="work-info">
-        <div class="work-title">作品名 3</div>
-        <div class="work-desc">説明文やタグ</div>
-      </div>
-    </div>
-
-    <!-- 必要なら追加… -->
-  </div>
+  </section>
 </main>
 
 </body>
