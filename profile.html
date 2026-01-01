@@ -1,1 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bimage | Profile</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      color: #111;
+      line-height: 1.7;
+    }
+
+    /* ===== Header ===== */
+    header {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1000px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #666;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #111;
+    }
+
+    /* ===== Main ===== */
+    main {
+      max-width: 920px;
+      margin: 140px auto 80px;
+      padding: 0 20px;
+    }
+
+    .profile-header {
+      margin-bottom: 40px;
+    }
+
+    .name {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .role {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .divider {
+      height: 1px;
+      background: #ddd;
+      margin: 40px 0;
+    }
+
+    .label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    /* ===== 箇条書き（・） ===== */
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      font-size: 0.95rem;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    ul li::before {
+      content: "・";
+      margin-right: 6px;
+    }
+
+    /* ===== Timeline（経験） ===== */
+    .timeline {
+      position: relative;
+      margin-top: 24px;
+      padding-left: 20px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      background: #ccc;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 36px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .dot {
+      position: absolute;
+      left: -2px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      background: #111;
+      border-radius: 50%;
+    }
+
+    .timeline-content {
+      padding-left: 18px;
+    }
+
+    .timeline-title {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    .timeline-content p {
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .name {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Bimage</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="works.html">Works</a>
+    <a href="profile.html">Profile</a>
+    <a href="news.html">News</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ===== 名前 ===== -->
+  <section class="profile-header">
+    <div class="name">Bemage / びめーじ！</div>
+    <div class="role">Student / Creator</div>
+  </section>
+
+  <!-- ===== 好きなもの ===== -->
+  <section>
+    <div class="label">好きなもの</div>
+    <ul>
+      <li>ゲーム制作</li>
+      <li>Webデザイン</li>
+      <li>3Dモデリング</li>
+      <li>マインクラフト チャージ切りPvP</li>
+      <li>映画鑑賞</li>
+      <li>音楽</li>
+      <li>食べ歩き</li>
+      <li>彼女とデート！</li>
+      
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== 資格 ===== -->
+  <section>
+    <div class="label">資格</div>
+    <ul>
+      <li>実用英語技能検定 5級</li>
+      <li>実用英語技能検定 4級</li>
+      <li>実用英語技能検定 3級</li>
+      <li>実用英語技能検定 準2級</li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== 経験（タイムライン） ===== -->
+  <section>
+    <div class="label">経験</div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <span class="dot"></span>
+        <div class="timeline-content">
+          <div class="timeline-title">
+            失敗と試行錯誤を重ねてきた経験
+          </div>
+          <p>
+            ゲーム制作やWeb制作を通して、思い通りにいかない場面を
+            何度も経験してきました。
+          </p>
+          <p>
+            原因を考え、調べ、改善するという流れを
+            繰り返す中で、継続して挑戦することの大切さを学びました。
+          </p>
+          <p>
+            小さな失敗を積み重ねながら、
+            自分なりの表現を形にする力を身につけています。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
 
