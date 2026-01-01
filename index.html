@@ -24,11 +24,17 @@
       font-family: 'Inter', sans-serif;
       background: #f9f9f9;
       color: #111;
+      overflow: hidden;
     }
 
+    /* ===== Header ===== */
     header {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
       max-width: 1000px;
-      margin: 40px auto;
       padding: 0 20px;
       display: flex;
       justify-content: space-between;
@@ -51,9 +57,12 @@
       color: #111;
     }
 
+    /* ===== Main (完全中央) ===== */
     main {
-      max-width: 1000px;
-      margin: 100px auto;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 0 20px;
     }
 
@@ -61,6 +70,16 @@
       display: flex;
       align-items: center;
       gap: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero img {
@@ -68,18 +87,20 @@
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* 薄い影 */
     }
 
     .hero-text h2 {
       font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .subtitle {
       font-size: 1rem;
       color: #555;
-      min-height: 1.5em;
+      min-height: 1.6em;
+      letter-spacing: 0.03em;
     }
 
     .subtitle strong {
@@ -87,8 +108,18 @@
       color: #111;
     }
 
+    .cursor {
+      display: inline-block;
+      margin-left: 2px;
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
     .sns {
-      margin-top: 24px;
+      margin-top: 26px;
       display: flex;
       gap: 18px;
     }
@@ -104,11 +135,12 @@
       transform: translateY(-2px);
     }
 
-    footer {
-      text-align: center;
-      margin: 140px 0 40px;
-      font-size: 0.8rem;
-      color: #999;
+    /* ===== Mobile ===== */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -127,13 +159,13 @@
 
 <main>
   <div class="hero">
-    <!-- アイコン画像 -->
+    <!-- アイコン画像（index.html と同じ階層に icon.png） -->
     <img src="icon.png" alt="icon">
 
     <div class="hero-text">
       <h2>Bimage</h2>
       <p class="subtitle">
-        <span id="typing"></span>
+        <span id="typing"></span><span class="cursor">|</span>
       </p>
 
       <div class="sns">
@@ -151,11 +183,7 @@
   </div>
 </main>
 
-<footer>
-  © 2026 Bimage
-</footer>
-
-<!-- タイピング演出（ゆっくり） -->
+<!-- ===== タイピング演出（ゆっくり） ===== -->
 <script>
   const text = "失敗、挫折は成功への道のり";
   const boldWord = "成功";
@@ -176,7 +204,7 @@
       }
 
       i++;
-      setTimeout(type, 130); // ← 少しゆっくり
+      setTimeout(type, 160); // ← ゆっくりめ
     }
   }
 
