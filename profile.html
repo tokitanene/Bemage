@@ -69,30 +69,30 @@
     }
 
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .profile h2 {
+    h2 {
       font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 48px;
+      margin-bottom: 60px;
     }
 
     section {
-      margin-bottom: 80px;
       max-width: 700px;
+      margin: 0 auto 100px;
     }
 
-    h3 {
+    section h3 {
       font-size: 1.2rem;
       font-weight: 600;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    /* ===== Experience ===== */
+    /* ===== Experience Timeline ===== */
     .timeline {
       position: relative;
       padding-left: 28px;
@@ -106,19 +106,19 @@
       width: 1px;
       height: 0;
       background: #ccc;
-      transition: height 1.2s ease;
+      transition: height 1s ease;
     }
 
-    .timeline.show::before {
+    .timeline.active::before {
       height: 100%;
     }
 
     .timeline-item {
       position: relative;
-      margin-bottom: 48px;
+      margin-bottom: 56px;
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition: 0.6s ease;
     }
 
     .timeline-item.show {
@@ -128,18 +128,17 @@
 
     .dot {
       position: absolute;
-      left: 0;
+      left: 1px;
       top: 6px;
       width: 12px;
       height: 12px;
-      background: #111;
+      background: #ccc;
       border-radius: 50%;
-      transform: scale(0);
-      transition: transform 0.6s ease;
+      transition: background 0.4s ease;
     }
 
-    .timeline-item.show .dot {
-      transform: scale(1);
+    .timeline-item.active .dot {
+      background: #111;
     }
 
     .timeline-body {
@@ -154,6 +153,7 @@
 
     .title {
       font-size: 1rem;
+      font-weight: 600;
       margin-bottom: 8px;
     }
 
@@ -171,32 +171,26 @@
     ul li {
       font-size: 0.95rem;
       margin-bottom: 10px;
+      padding-left: 16px;
       position: relative;
-      padding-left: 20px;
     }
 
     ul li::before {
-      content: "❤";
+      content: "・";
       position: absolute;
       left: 0;
-      font-size: 0.8rem;
     }
 
     /* ===== Qualification ===== */
     .cert {
       display: flex;
-      align-items: flex-start;
       gap: 14px;
       margin-bottom: 14px;
+      align-items: flex-start;
     }
 
     .cert i {
       margin-top: 2px;
-    }
-
-    .cert span {
-      font-size: 0.95rem;
-      color: #444;
     }
   </style>
 </head>
@@ -219,8 +213,9 @@
 
     <!-- Experience -->
     <section>
-      <h3><i class="fa-solid fa-clock"></i> Experience</h3>
-      <div class="timeline">
+      <h3><i class="fa-solid fa-clock-rotate-left"></i> Experience</h3>
+
+      <div class="timeline" id="timeline">
         <div class="timeline-item">
           <span class="dot"></span>
           <div class="timeline-body">
@@ -235,7 +230,7 @@
           <div class="timeline-body">
             <div class="time">2024</div>
             <div class="title">挫折と試行錯誤</div>
-            <p>失敗を繰り返しながら制作を継続</p>
+            <p>思うように形にできず、失敗を重ねながら制作を継続</p>
           </div>
         </div>
 
@@ -244,7 +239,7 @@
           <div class="timeline-body">
             <div class="time">2025 - 現在</div>
             <div class="title">表現の探求</div>
-            <p>経験を活かし、より良い表現を模索中</p>
+            <p>経験を糧に、より良いアウトプットを模索中</p>
           </div>
         </div>
       </div>
@@ -254,7 +249,7 @@
     <section>
       <h3><i class="fa-solid fa-heart"></i> 好きなもの</h3>
       <ul>
-        <li>Web デザイン</li>
+        <li>Webデザイン</li>
         <li>UI / UX</li>
         <li>タイポグラフィ</li>
         <li>音楽</li>
@@ -265,34 +260,36 @@
     <!-- Qualification -->
     <section>
       <h3><i class="fa-solid fa-medal"></i> 資格</h3>
+
       <div class="cert">
         <i class="fa-solid fa-medal"></i>
         <span>〇〇検定 △級</span>
       </div>
+
       <div class="cert">
         <i class="fa-solid fa-medal"></i>
         <span>〇〇資格（取得予定）</span>
       </div>
     </section>
+
   </div>
 </main>
 
 <script>
-  const timeline = document.querySelector(".timeline");
-  const items = document.querySelectorAll(".timeline-item");
+  const items = document.querySelectorAll('.timeline-item');
+  const timeline = document.getElementById('timeline');
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        timeline.classList.add("show");
-        items.forEach((item, i) => {
-          setTimeout(() => item.classList.add("show"), i * 200);
-        });
+        timeline.classList.add('active');
+        entry.target.classList.add('show');
+        entry.target.classList.add('active');
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.4 });
 
-  observer.observe(timeline);
+  items.forEach(item => observer.observe(item));
 </script>
 
 </body>
