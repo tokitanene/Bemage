@@ -2,13 +2,13 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>Profile | Bemage</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bemage | Profile</title>
 
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -17,65 +17,82 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: "Inter", sans-serif;
+      font-family: 'Inter', sans-serif;
       background: #f9f9f9;
-      color: #222;
+      color: #111;
     }
 
-    /* ===== Header ===== */
+    /* ===== Header（Worksと完全一致） ===== */
     header {
-      position: fixed;
-      top: 0;
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
       width: 100%;
-      padding: 24px 48px;
+      max-width: 1000px;
+      padding: 0 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: linear-gradient(#f9f9f9 80%, transparent);
-      z-index: 100;
     }
 
-    .logo {
+    header h1 {
+      font-size: 1.4rem;
       font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    nav {
-      display: flex;
-      gap: 32px;
     }
 
     nav a {
+      margin-left: 20px;
       text-decoration: none;
-      color: #111;
+      color: #666;
       font-size: 0.95rem;
-      letter-spacing: 0.05em;
     }
 
-    /* ===== Layout ===== */
+    nav a:hover {
+      color: #111;
+    }
+
+    /* ===== Main ===== */
     main {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 140px 24px;
+      min-height: 100vh;
+      padding: 160px 20px 80px;
+      display: flex;
+      justify-content: center;
     }
 
-    h1 {
-      font-size: 1.6rem;
+    .profile {
+      width: 100%;
+      max-width: 1000px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .profile h2 {
+      font-size: 2rem;
+      font-weight: 700;
       margin-bottom: 48px;
-      font-weight: 600;
     }
 
     section {
-      margin-bottom: 72px;
+      margin-bottom: 80px;
+      max-width: 700px;
     }
 
-    h2 {
+    h3 {
       font-size: 1.2rem;
-      margin-bottom: 24px;
       font-weight: 600;
+      margin-bottom: 24px;
     }
 
-    /* ===== Experience Timeline ===== */
+    /* ===== Experience ===== */
     .timeline {
       position: relative;
       padding-left: 28px;
@@ -162,7 +179,6 @@
       content: "❤";
       position: absolute;
       left: 0;
-      color: #111;
       font-size: 0.8rem;
     }
 
@@ -175,7 +191,6 @@
     }
 
     .cert i {
-      color: #111;
       margin-top: 2px;
     }
 
@@ -189,78 +204,77 @@
 <body>
 
 <header>
-  <div class="logo">Bemage / びめーじ！</div>
+  <h1>Bemage / びめーじ！</h1>
   <nav>
-    <a href="/">Home</a>
-    <a href="/works/">Works</a>
-    <a href="/profile/">Profile</a>
-    <a href="/news/">News</a>
+    <a href="index.html">Home</a>
+    <a href="works.html">Works</a>
+    <a href="profile.html">Profile</a>
+    <a href="news.html">News</a>
   </nav>
 </header>
 
 <main>
-  <h1>Profile</h1>
+  <div class="profile">
+    <h2>Profile</h2>
 
-  <!-- Experience -->
-  <section>
-    <h2>Experience</h2>
+    <!-- Experience -->
+    <section>
+      <h3><i class="fa-solid fa-clock"></i> Experience</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="dot"></span>
+          <div class="timeline-body">
+            <div class="time">2023</div>
+            <div class="title">制作との出会い</div>
+            <p>Web・デザイン・表現に興味を持ち、独学で学び始める</p>
+          </div>
+        </div>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <span class="dot"></span>
-        <div class="timeline-body">
-          <div class="time">2023</div>
-          <div class="title">制作との出会い</div>
-          <p>Web・デザイン・表現に興味を持ち、独学で学び始める</p>
+        <div class="timeline-item">
+          <span class="dot"></span>
+          <div class="timeline-body">
+            <div class="time">2024</div>
+            <div class="title">挫折と試行錯誤</div>
+            <p>失敗を繰り返しながら制作を継続</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="dot"></span>
+          <div class="timeline-body">
+            <div class="time">2025 - 現在</div>
+            <div class="title">表現の探求</div>
+            <p>経験を活かし、より良い表現を模索中</p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="timeline-item">
-        <span class="dot"></span>
-        <div class="timeline-body">
-          <div class="time">2024</div>
-          <div class="title">挫折と試行錯誤</div>
-          <p>思うように形にできず、失敗を繰り返しながら制作を継続</p>
-        </div>
+    <!-- Likes -->
+    <section>
+      <h3><i class="fa-solid fa-heart"></i> 好きなもの</h3>
+      <ul>
+        <li>Web デザイン</li>
+        <li>UI / UX</li>
+        <li>タイポグラフィ</li>
+        <li>音楽</li>
+        <li>ものづくり</li>
+      </ul>
+    </section>
+
+    <!-- Qualification -->
+    <section>
+      <h3><i class="fa-solid fa-medal"></i> 資格</h3>
+      <div class="cert">
+        <i class="fa-solid fa-medal"></i>
+        <span>〇〇検定 △級</span>
       </div>
-
-      <div class="timeline-item">
-        <span class="dot"></span>
-        <div class="timeline-body">
-          <div class="time">2025 - 現在</div>
-          <div class="title">表現の探求</div>
-          <p>失敗や挫折を経験として活かし、より良い表現を模索中</p>
-        </div>
+      <div class="cert">
+        <i class="fa-solid fa-medal"></i>
+        <span>〇〇資格（取得予定）</span>
       </div>
-    </div>
-  </section>
-
-  <!-- Likes -->
-  <section>
-    <h2>好きなもの</h2>
-    <ul>
-      <li>Web デザイン</li>
-      <li>タイポグラフィ</li>
-      <li>UI / UX</li>
-      <li>音楽</li>
-      <li>ものづくり</li>
-    </ul>
-  </section>
-
-  <!-- Qualification -->
-  <section>
-    <h2>資格</h2>
-
-    <div class="cert">
-      <i class="fa-solid fa-medal"></i>
-      <span>〇〇検定 △級</span>
-    </div>
-
-    <div class="cert">
-      <i class="fa-solid fa-medal"></i>
-      <span>〇〇資格（取得予定）</span>
-    </div>
-  </section>
+    </section>
+  </div>
 </main>
 
 <script>
@@ -272,9 +286,7 @@
       if (entry.isIntersecting) {
         timeline.classList.add("show");
         items.forEach((item, i) => {
-          setTimeout(() => {
-            item.classList.add("show");
-          }, i * 200);
+          setTimeout(() => item.classList.add("show"), i * 200);
         });
       }
     });
