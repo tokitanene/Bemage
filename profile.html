@@ -22,7 +22,7 @@
       color: #222;
     }
 
-    /* ===== Header（全ページ共通） ===== */
+    /* ===== Header（indexと同一） ===== */
     header {
       position: fixed;
       top: 0;
@@ -43,7 +43,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* ===== Main（Home / Works と同一） ===== */
     main {
       max-width: 600px;
       margin: 0 auto;
@@ -61,11 +60,20 @@
       margin-bottom: 80px;
     }
 
-    h2 {
+    /* ===== Section Title with Icon ===== */
+    .section-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
       font-size: 1.1rem;
       font-weight: 600;
-      margin-bottom: 32px;
-      text-align: center;
+    }
+
+    .section-title i {
+      font-size: 0.95rem;
+      color: #111;
     }
 
     /* ===== Experience ===== */
@@ -87,10 +95,6 @@
     .timeline-item {
       position: relative;
       margin-bottom: 56px;
-    }
-
-    .timeline-item:last-child {
-      margin-bottom: 0;
     }
 
     .dot {
@@ -124,40 +128,25 @@
       color: #444;
     }
 
-    /* ===== Lists ===== */
-    ul {
-      list-style: none;
-      padding-left: 0;
+    /* ===== Likes & Qualifications (same style) ===== */
+    .icon-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
     }
 
-    ul li {
-      font-size: 0.95rem;
-      margin-bottom: 12px;
-      padding-left: 16px;
-      position: relative;
-      line-height: 1.6;
-    }
-
-    ul li::before {
-      content: "・";
-      position: absolute;
-      left: 0;
-      color: #111;
-    }
-
-    /* ===== Qualification ===== */
-    .cert {
+    .icon-item {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 12px;
-      margin-bottom: 14px;
       font-size: 0.95rem;
       color: #444;
     }
 
-    .cert i {
+    .icon-item i {
       color: #111;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -165,10 +154,10 @@
 <body>
 
 <header>
-  <a href="/">Home</a>
-  <a href="/works/">Works</a>
-  <a href="/profile/">Profile</a>
-  <a href="/news/">News</a>
+  <a href="index.html">Home</a>
+  <a href="works.html">Works</a>
+  <a href="profile.html">Profile</a>
+  <a href="news.html">News</a>
 </header>
 
 <main>
@@ -176,7 +165,10 @@
 
   <!-- Experience -->
   <section>
-    <h2>Experience</h2>
+    <div class="section-title">
+      <i class="fa-solid fa-briefcase"></i>
+      <span>Experience</span>
+    </div>
 
     <div class="timeline">
       <div class="timeline-item">
@@ -210,30 +202,33 @@
 
   <!-- Likes -->
   <section>
-    <h2>好きなもの</h2>
-    <ul>
-      <li>Web デザイン</li>
-      <li>UI / UX</li>
-      <li>タイポグラフィ</li>
-      <li>音楽</li>
-      <li>ものづくり</li>
-    </ul>
+    <div class="section-title">
+      <i class="fa-solid fa-heart"></i>
+      <span>好きなこと</span>
+    </div>
+
+    <div class="icon-list">
+      <div class="icon-item"><i class="fa-solid fa-heart"></i> Web デザイン</div>
+      <div class="icon-item"><i class="fa-solid fa-heart"></i> UI / UX</div>
+      <div class="icon-item"><i class="fa-solid fa-heart"></i> タイポグラフィ</div>
+      <div class="icon-item"><i class="fa-solid fa-heart"></i> 音楽</div>
+      <div class="icon-item"><i class="fa-solid fa-heart"></i> ものづくり</div>
+    </div>
   </section>
 
   <!-- Qualification -->
   <section>
-    <h2>資格</h2>
-
-    <div class="cert">
+    <div class="section-title">
       <i class="fa-solid fa-medal"></i>
-      <span>〇〇検定 △級</span>
+      <span>資格</span>
     </div>
 
-    <div class="cert">
-      <i class="fa-solid fa-medal"></i>
-      <span>〇〇資格（取得予定）</span>
+    <div class="icon-list">
+      <div class="icon-item"><i class="fa-solid fa-medal"></i> 〇〇検定 △級</div>
+      <div class="icon-item"><i class="fa-solid fa-medal"></i> 〇〇資格（取得予定）</div>
     </div>
   </section>
+
 </main>
 
 </body>
