@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>Profile | bimage</title>
+  <title>Profile | Bemage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Font -->
@@ -22,61 +22,76 @@
       color: #222;
     }
 
-    /* ===== Header（indexと同一） ===== */
+    /* ===== Header（Worksと完全共通） ===== */
     header {
       position: fixed;
       top: 0;
-      right: 0;
       width: 100%;
       padding: 24px 48px;
       display: flex;
-      justify-content: flex-end;
-      gap: 32px;
+      justify-content: space-between;
+      align-items: center;
       background: linear-gradient(#f9f9f9 80%, transparent);
       z-index: 100;
     }
 
-    header a {
-      text-decoration: none;
-      color: #111;
+    .logo {
+      font-weight: 600;
       font-size: 0.95rem;
-      letter-spacing: 0.05em;
     }
 
+    nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111;
+      font-size: 0.9rem;
+    }
+
+    /* ===== Layout（Worksと同じ） ===== */
     main {
-      max-width: 600px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 160px 24px 120px;
     }
 
     h1 {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       font-weight: 600;
-      margin-bottom: 64px;
-      text-align: center;
+      margin-bottom: 48px;
     }
 
-    section {
-      margin-bottom: 80px;
+    /* ===== Profile Content ===== */
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 48px;
     }
 
-    /* ===== Section Title with Icon ===== */
-    .section-title {
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 32px 36px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .card-title {
       display: flex;
-      justify-content: center;
       align-items: center;
       gap: 12px;
-      margin-bottom: 32px;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
+      margin-bottom: 20px;
     }
 
-    .section-title i {
+    .card-title i {
       font-size: 0.95rem;
-      color: #111;
     }
 
-    /* ===== Experience ===== */
+    /* Experience */
     .timeline {
       position: relative;
       padding-left: 28px;
@@ -94,12 +109,12 @@
 
     .timeline-item {
       position: relative;
-      margin-bottom: 56px;
+      margin-bottom: 32px;
     }
 
     .dot {
       position: absolute;
-      left: 1px;
+      left: 0;
       top: 6px;
       width: 12px;
       height: 12px;
@@ -117,36 +132,26 @@
       margin-bottom: 6px;
     }
 
-    .title {
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-
     .timeline-body p {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       line-height: 1.7;
       color: #444;
     }
 
-    /* ===== Likes & Qualifications (same style) ===== */
-    .icon-list {
+    /* Lists */
+    ul {
+      list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      align-items: center;
+      gap: 12px;
     }
 
-    .icon-item {
+    li {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 0.95rem;
-      color: #444;
-    }
-
-    .icon-item i {
-      color: #111;
       font-size: 0.9rem;
+      color: #444;
     }
   </style>
 </head>
@@ -154,81 +159,83 @@
 <body>
 
 <header>
-  <a href="index.html">Home</a>
-  <a href="works.html">Works</a>
-  <a href="profile.html">Profile</a>
-  <a href="news.html">News</a>
+  <div class="logo">Bemage / びめーじ！</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="works.html">Works</a>
+    <a href="profile.html">Profile</a>
+    <a href="news.html">News</a>
+  </nav>
 </header>
 
 <main>
   <h1>Profile</h1>
 
-  <!-- Experience -->
-  <section>
-    <div class="section-title">
-      <i class="fa-solid fa-briefcase"></i>
-      <span>Experience</span>
-    </div>
+  <div class="profile-grid">
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <span class="dot"></span>
-        <div class="timeline-body">
-          <div class="time">2023</div>
-          <div class="title">制作との出会い</div>
-          <p>Web やデザインに興味を持ち、独学で制作を始める</p>
-        </div>
+    <!-- Experience -->
+    <div class="card">
+      <div class="card-title">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>Experience</span>
       </div>
 
-      <div class="timeline-item">
-        <span class="dot"></span>
-        <div class="timeline-body">
-          <div class="time">2024</div>
-          <div class="title">挫折と試行錯誤</div>
-          <p>失敗を重ねながらも、表現の幅を広げる</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="dot"></span>
+          <div class="timeline-body">
+            <div class="time">2023</div>
+            <p>Web制作・デザインに興味を持ち、独学で制作を開始</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="dot"></span>
+          <div class="timeline-body">
+            <div class="time">2024</div>
+            <p>失敗や挫折を経験しながら、表現力を磨く</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="dot"></span>
+          <div class="timeline-body">
+            <div class="time">2025 - 現在</div>
+            <p>挑戦を続け、より良いアウトプットを追求</p>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="timeline-item">
-        <span class="dot"></span>
-        <div class="timeline-body">
-          <div class="time">2025 - 現在</div>
-          <div class="title">表現の探求</div>
-          <p>失敗や挫折を糧に、より良いアウトプットを目指す</p>
-        </div>
+    <!-- Likes -->
+    <div class="card">
+      <div class="card-title">
+        <i class="fa-solid fa-heart"></i>
+        <span>好きなこと</span>
       </div>
-    </div>
-  </section>
 
-  <!-- Likes -->
-  <section>
-    <div class="section-title">
-      <i class="fa-solid fa-heart"></i>
-      <span>好きなこと</span>
-    </div>
-
-    <div class="icon-list">
-      <div class="icon-item"><i class="fa-solid fa-heart"></i> Web デザイン</div>
-      <div class="icon-item"><i class="fa-solid fa-heart"></i> UI / UX</div>
-      <div class="icon-item"><i class="fa-solid fa-heart"></i> タイポグラフィ</div>
-      <div class="icon-item"><i class="fa-solid fa-heart"></i> 音楽</div>
-      <div class="icon-item"><i class="fa-solid fa-heart"></i> ものづくり</div>
-    </div>
-  </section>
-
-  <!-- Qualification -->
-  <section>
-    <div class="section-title">
-      <i class="fa-solid fa-medal"></i>
-      <span>資格</span>
+      <ul>
+        <li><i class="fa-solid fa-heart"></i> Webデザイン</li>
+        <li><i class="fa-solid fa-heart"></i> UI / UX</li>
+        <li><i class="fa-solid fa-heart"></i> タイポグラフィ</li>
+        <li><i class="fa-solid fa-heart"></i> ものづくり</li>
+      </ul>
     </div>
 
-    <div class="icon-list">
-      <div class="icon-item"><i class="fa-solid fa-medal"></i> 〇〇検定 △級</div>
-      <div class="icon-item"><i class="fa-solid fa-medal"></i> 〇〇資格（取得予定）</div>
-    </div>
-  </section>
+    <!-- Qualification -->
+    <div class="card">
+      <div class="card-title">
+        <i class="fa-solid fa-medal"></i>
+        <span>資格</span>
+      </div>
 
+      <ul>
+        <li><i class="fa-solid fa-medal"></i> 〇〇検定 △級</li>
+        <li><i class="fa-solid fa-medal"></i> △△資格（取得予定）</li>
+      </ul>
+    </div>
+
+  </div>
 </main>
 
 </body>
