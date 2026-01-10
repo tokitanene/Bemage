@@ -22,7 +22,7 @@
       color: #222;
     }
 
-    /* ===== Header（Worksと完全共通） ===== */
+    /* ===== Header ===== */
     header {
       position: fixed;
       top: 0;
@@ -48,50 +48,34 @@
     nav a {
       text-decoration: none;
       color: #111;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
     }
 
-    /* ===== Layout（Worksと同じ） ===== */
+    /* ===== Layout ===== */
     main {
-      max-width: 1100px;
+      max-width: 700px;
       margin: 0 auto;
-      padding: 160px 24px 120px;
+      padding: 140px 24px;
     }
 
     h1 {
-      font-size: 1.8rem;
-      font-weight: 600;
+      font-size: 1.6rem;
       margin-bottom: 48px;
-    }
-
-    /* ===== Profile Content ===== */
-    .profile-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 48px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 32px 32px 36px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    }
-
-    .card-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 1.05rem;
       font-weight: 600;
-      margin-bottom: 20px;
     }
 
-    .card-title i {
-      font-size: 0.95rem;
+    section {
+      margin-bottom: 72px;
     }
 
-    /* Experience */
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    /* ===== Experience Timeline ===== */
     .timeline {
       position: relative;
       padding-left: 28px;
@@ -103,13 +87,26 @@
       left: 6px;
       top: 0;
       width: 1px;
-      height: 100%;
+      height: 0;
       background: #ccc;
+      transition: height 1.2s ease;
+    }
+
+    .timeline.show::before {
+      height: 100%;
     }
 
     .timeline-item {
       position: relative;
-      margin-bottom: 32px;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .timeline-item.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .dot {
@@ -120,6 +117,12 @@
       height: 12px;
       background: #111;
       border-radius: 50%;
+      transform: scale(0);
+      transition: transform 0.6s ease;
+    }
+
+    .timeline-item.show .dot {
+      transform: scale(1);
     }
 
     .timeline-body {
@@ -132,25 +135,52 @@
       margin-bottom: 6px;
     }
 
+    .title {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
     .timeline-body p {
-      font-size: 0.9rem;
-      line-height: 1.7;
+      font-size: 0.95rem;
+      line-height: 1.6;
       color: #444;
     }
 
-    /* Lists */
+    /* ===== Likes ===== */
     ul {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
     }
 
-    li {
+    ul li {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    ul li::before {
+      content: "❤";
+      position: absolute;
+      left: 0;
+      color: #111;
+      font-size: 0.8rem;
+    }
+
+    /* ===== Qualification ===== */
+    .cert {
       display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.9rem;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .cert i {
+      color: #111;
+      margin-top: 2px;
+    }
+
+    .cert span {
+      font-size: 0.95rem;
       color: #444;
     }
   </style>
@@ -161,82 +191,97 @@
 <header>
   <div class="logo">Bemage / びめーじ！</div>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="works.html">Works</a>
-    <a href="profile.html">Profile</a>
-    <a href="news.html">News</a>
+    <a href="/">Home</a>
+    <a href="/works/">Works</a>
+    <a href="/profile/">Profile</a>
+    <a href="/news/">News</a>
   </nav>
 </header>
 
 <main>
   <h1>Profile</h1>
 
-  <div class="profile-grid">
+  <!-- Experience -->
+  <section>
+    <h2>Experience</h2>
 
-    <!-- Experience -->
-    <div class="card">
-      <div class="card-title">
-        <i class="fa-solid fa-briefcase"></i>
-        <span>Experience</span>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="dot"></span>
+        <div class="timeline-body">
+          <div class="time">2023</div>
+          <div class="title">制作との出会い</div>
+          <p>Web・デザイン・表現に興味を持ち、独学で学び始める</p>
+        </div>
       </div>
 
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="dot"></span>
-          <div class="timeline-body">
-            <div class="time">2023</div>
-            <p>Web制作・デザインに興味を持ち、独学で制作を開始</p>
-          </div>
+      <div class="timeline-item">
+        <span class="dot"></span>
+        <div class="timeline-body">
+          <div class="time">2024</div>
+          <div class="title">挫折と試行錯誤</div>
+          <p>思うように形にできず、失敗を繰り返しながら制作を継続</p>
         </div>
+      </div>
 
-        <div class="timeline-item">
-          <span class="dot"></span>
-          <div class="timeline-body">
-            <div class="time">2024</div>
-            <p>失敗や挫折を経験しながら、表現力を磨く</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <span class="dot"></span>
-          <div class="timeline-body">
-            <div class="time">2025 - 現在</div>
-            <p>挑戦を続け、より良いアウトプットを追求</p>
-          </div>
+      <div class="timeline-item">
+        <span class="dot"></span>
+        <div class="timeline-body">
+          <div class="time">2025 - 現在</div>
+          <div class="title">表現の探求</div>
+          <p>失敗や挫折を経験として活かし、より良い表現を模索中</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Likes -->
-    <div class="card">
-      <div class="card-title">
-        <i class="fa-solid fa-heart"></i>
-        <span>好きなこと</span>
-      </div>
+  <!-- Likes -->
+  <section>
+    <h2>好きなもの</h2>
+    <ul>
+      <li>Web デザイン</li>
+      <li>タイポグラフィ</li>
+      <li>UI / UX</li>
+      <li>音楽</li>
+      <li>ものづくり</li>
+    </ul>
+  </section>
 
-      <ul>
-        <li><i class="fa-solid fa-heart"></i> Webデザイン</li>
-        <li><i class="fa-solid fa-heart"></i> UI / UX</li>
-        <li><i class="fa-solid fa-heart"></i> タイポグラフィ</li>
-        <li><i class="fa-solid fa-heart"></i> ものづくり</li>
-      </ul>
+  <!-- Qualification -->
+  <section>
+    <h2>資格</h2>
+
+    <div class="cert">
+      <i class="fa-solid fa-medal"></i>
+      <span>〇〇検定 △級</span>
     </div>
 
-    <!-- Qualification -->
-    <div class="card">
-      <div class="card-title">
-        <i class="fa-solid fa-medal"></i>
-        <span>資格</span>
-      </div>
-
-      <ul>
-        <li><i class="fa-solid fa-medal"></i> 〇〇検定 △級</li>
-        <li><i class="fa-solid fa-medal"></i> △△資格（取得予定）</li>
-      </ul>
+    <div class="cert">
+      <i class="fa-solid fa-medal"></i>
+      <span>〇〇資格（取得予定）</span>
     </div>
-
-  </div>
+  </section>
 </main>
+
+<script>
+  const timeline = document.querySelector(".timeline");
+  const items = document.querySelectorAll(".timeline-item");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        timeline.classList.add("show");
+        items.forEach((item, i) => {
+          setTimeout(() => {
+            item.classList.add("show");
+          }, i * 200);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(timeline);
+</script>
 
 </body>
 </html>
