@@ -22,7 +22,7 @@
       color: #111;
     }
 
-    /* ===== Header（Worksと完全一致） ===== */
+    /* ===== Header（Wishlistと完全一致） ===== */
     header {
       position: absolute;
       top: 40px;
@@ -52,7 +52,7 @@
       color: #111;
     }
 
-    /* ===== Main ===== */
+    /* ===== Main（統一） ===== */
     main {
       min-height: 100vh;
       padding: 160px 20px 80px;
@@ -60,7 +60,7 @@
       justify-content: center;
     }
 
-    .profile {
+    .content {
       width: 100%;
       max-width: 1000px;
       opacity: 0;
@@ -92,7 +92,7 @@
       gap: 10px;
     }
 
-    /* ===== Experience Timeline ===== */
+    /* ===== Timeline ===== */
     .timeline {
       position: relative;
       padding-left: 28px;
@@ -134,7 +134,6 @@
       height: 12px;
       background: #ccc;
       border-radius: 50%;
-      transition: background 0.4s ease;
     }
 
     .timeline-item.active .dot {
@@ -163,7 +162,7 @@
       color: #444;
     }
 
-    /* ===== Likes ===== */
+    /* ===== List ===== */
     ul {
       list-style: none;
     }
@@ -189,36 +188,32 @@
       align-items: flex-start;
     }
 
-    .cert i {
-      margin-top: 2px;
+    /* ===== Link（完全統一） ===== */
+    .link {
+      color: #111;
+      font-weight: 600;
+      text-decoration: none;
+      position: relative;
     }
 
-    .link {
-  color: #111;
-  font-weight: 600;
-  text-decoration: none;
-  position: relative;
-}
+    .link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 1px;
+      background: #111;
+      transition: opacity 0.2s ease;
+    }
 
-.link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 1px;
-  background: #111;
-  transition: opacity 0.2s ease;
-}
+    .link:hover {
+      color: #666;
+    }
 
-.link:hover {
-  color: #666;
-}
-
-.link:hover::after {
-  opacity: 0;
-}
-
+    .link:hover::after {
+      opacity: 0;
+    }
   </style>
 </head>
 
@@ -230,12 +225,12 @@
     <a href="index.html">Home</a>
     <a href="profile.html">Profile</a>
     <a href="news.html">News</a>
-    <a href="Wish.html">Wishlist</a>
+    <a href="wishlist.html">Wishlist</a>
   </nav>
 </header>
 
 <main>
-  <div class="profile">
+  <div class="content">
     <h2>Profile</h2>
 
     <!-- Experience -->
@@ -270,21 +265,21 @@
           </div>
         </div>
 
-                <div class="timeline-item">
+        <div class="timeline-item">
           <span class="dot"></span>
           <div class="timeline-body">
             <div class="time">2025</div>
             <div class="title">新たな挑戦</div>
-            <p>Minecraftに復帰し、面白さに再度気づく。サーバーを作る側にあこがれサーバー製作に挑戦</p>
+            <p>Minecraftに復帰し、サーバー制作に挑戦</p>
           </div>
         </div>
 
-                        <div class="timeline-item">
+        <div class="timeline-item">
           <span class="dot"></span>
           <div class="timeline-body">
             <div class="time">2026 - 現在</div>
             <div class="title">試行錯誤中</div>
-            <p>Minecraftでアジア初の競技性の高いミニゲームサーバー「Jeous」を製作中</p>
+            <p>Minecraft競技系サーバー「Jeous」を製作中</p>
           </div>
         </div>
       </div>
@@ -297,26 +292,32 @@
         <li>ラーメン</li>
         <li>Valorant</li>
         <li>Fortnite</li>
-        <li>音楽 (<a href="https://youtu.be/t_H7arA7OvM?si=fHdHT2UGLOKACg2R" target="_blank" rel="noopener" class="link">喜びの種</a>、<a href="https://youtu.be/wTc3jXDTNBo?si=osvW9Nh4TIBckxhs" target="_blank" rel="noopener" class="link">正解</a>、<a href="https://youtu.be/Vsjjqy9uLe4?si=3z-Lt42W-oNmmkVI" target="_blank" rel="noopener" class="link">七ノ歌</a>、<a href="https://youtu.be/a2GujJZfXpg?si=N2tRdsLSVm0tAe10" target="_blank" rel="noopener" class="link">スパークル</a>、<a href="https://youtu.be/h5uP8eqKah8?si=jBTJr32O9gAyUKuf" target="_blank" rel="noopener" class="link">僕らはいきものだから</a>）</li>
-        <li>映画鑑賞（<a href="https://youtu.be/nS2cikiIsI8?si=swUpPZMyJFqOYHBI" target="_blank" rel="noopener" class="link">ラーゲリより愛を込めて</a>、<a href="https://youtu.be/rzKcrJ77wBY?si=x4jPNgfU913ejcwK" target="_blank" rel="noopener" class="link">天気の子</a>)</a></li>
+        <li>
+          音楽（
+          <a href="https://youtu.be/t_H7arA7OvM" class="link" target="_blank">喜びの種</a>、
+          <a href="https://youtu.be/wTc3jXDTNBo" class="link" target="_blank">正解</a>、
+          <a href="https://youtu.be/Vsjjqy9uLe4" class="link" target="_blank">七ノ歌</a>、
+          <a href="https://youtu.be/a2GujJZfXpg" class="link" target="_blank">スパークル</a>、
+          <a href="https://youtu.be/h5uP8eqKah8" class="link" target="_blank">僕らはいきものだから</a>
+          ）
+        </li>
+        <li>
+          映画鑑賞（
+          <a href="https://youtu.be/nS2cikiIsI8" class="link" target="_blank">ラーゲリより愛を込めて</a>、
+          <a href="https://youtu.be/rzKcrJ77wBY" class="link" target="_blank">天気の子</a>
+          ）
+        </li>
       </ul>
     </section>
 
     <!-- Qualification -->
     <section>
       <h3><i class="fa-solid fa-medal"></i> 資格</h3>
-
       <div class="cert">
         <i class="fa-solid fa-medal"></i>
-        <span>実用英語技能検定　準2級</span>
-      </div>
-
-
-       
+        <span>実用英語技能検定 準2級</span>
       </div>
     </section>
-
-
 
   </div>
 </main>
@@ -329,8 +330,7 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         timeline.classList.add('active');
-        entry.target.classList.add('show');
-        entry.target.classList.add('active');
+        entry.target.classList.add('show', 'active');
       }
     });
   }, { threshold: 0.4 });
