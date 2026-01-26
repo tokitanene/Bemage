@@ -22,7 +22,7 @@
       color: #111;
     }
 
-    /* ===== Header（Works / Home と完全一致） ===== */
+    /* ===== Header（Worksと完全一致） ===== */
     header {
       position: absolute;
       top: 40px;
@@ -75,13 +75,12 @@
     h2 {
       font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 60px;
-      text-align: center;
+      margin-bottom: 80px;
     }
 
     section {
       max-width: 700px;
-      margin: 0 auto 100px;
+      margin: 0 auto 120px;
     }
 
     section h3 {
@@ -135,6 +134,7 @@
       height: 12px;
       background: #ccc;
       border-radius: 50%;
+      transition: background 0.3s ease;
     }
 
     .timeline-item.active .dot {
@@ -236,7 +236,7 @@
           <div class="timeline-body">
             <div class="time">2021</div>
             <div class="title">Minecraftを始める</div>
-            <p>Hypixelに出会う</p>
+            <p>Hypixelに出会い、オンラインゲームの楽しさを知る</p>
           </div>
         </div>
 
@@ -244,8 +244,8 @@
           <span class="dot"></span>
           <div class="timeline-body">
             <div class="time">2022</div>
-            <div class="title">Valorantに挑戦</div>
-            <p>Hopliteにハマり、毎日プレイ</p>
+            <div class="title">FPSへの挑戦</div>
+            <p>Valorantを始め、Hopliteに強く惹かれる</p>
           </div>
         </div>
 
@@ -254,7 +254,7 @@
           <div class="timeline-body">
             <div class="time">2024</div>
             <div class="title">ゲームの幅が広がる</div>
-            <p>Fortnite・Valorantを友人と本格的に開始</p>
+            <p>FortniteとValorantを友人と共に本格的にプレイ</p>
           </div>
         </div>
 
@@ -262,8 +262,8 @@
           <span class="dot"></span>
           <div class="timeline-body">
             <div class="time">2025</div>
-            <div class="title">制作側へ</div>
-            <p>Minecraftサーバー制作に挑戦</p>
+            <div class="title">制作側への挑戦</div>
+            <p>Minecraftに復帰し、サーバー制作を開始</p>
           </div>
         </div>
 
@@ -282,9 +282,9 @@
     <section>
       <h3><i class="fa-solid fa-pen-nib"></i> Works</h3>
       <ul>
-        <li>
-          <a href="works.html" class="link">制作物一覧を見る</a>
-        </li>
+        <li>Minecraft競技系サーバー「Jeous」制作</li>
+        <li>サーバー設計・ゲームバランス調整</li>
+        <li>Webサイト・UIデザイン</li>
       </ul>
     </section>
 
@@ -293,16 +293,13 @@
       <h3><i class="fa-solid fa-heart"></i> Likes</h3>
       <ul>
         <li>ラーメン</li>
-        <li>Valorant</li>
-        <li>Fortnite</li>
-      </ul>
-    </section>
-
-    <!-- Qualification -->
-    <section>
-      <h3><i class="fa-solid fa-medal"></i> 資格</h3>
-      <ul>
-        <li>実用英語技能検定 準2級</li>
+        <li>Valorant / Fortnite</li>
+        <li>
+          音楽（
+          <a class="link" href="https://youtu.be/t_H7arA7OvM" target="_blank">喜びの種</a>、
+          <a class="link" href="https://youtu.be/Vsjjqy9uLe4" target="_blank">七ノ歌</a>
+          ）
+        </li>
       </ul>
     </section>
 
@@ -315,5 +312,15 @@
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isInterse
+      if (entry.isIntersecting) {
+        timeline.classList.add('active');
+        entry.target.classList.add('show', 'active');
+      }
+    });
+  }, { threshold: 0.4 });
 
+  items.forEach(item => observer.observe(item));
+</script>
+
+</body>
+</html>
