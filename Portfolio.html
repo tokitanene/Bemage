@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bemage | Portfolio</title>
+
+  <!-- フォント -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      color: #111;
+    }
+
+    /* ===== Header ===== */
+    header {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1000px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #111;
+    }
+
+    /* ===== Main ===== */
+    main {
+      min-height: 100vh;
+      padding: 160px 20px 60px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .portfolio {
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .portfolio h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    /* ===== Grid ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .work {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      cursor: pointer;
+      background: #000;
+    }
+
+    .work img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    /* ホバー時に拡大 */
+    .work:hover img {
+      transform: scale(1.08);
+    }
+
+    /* タイトル */
+    .work-title {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      background: rgba(0,0,0,0.45);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      letter-spacing: 0.05em;
+    }
+
+    /* ホバー時に表示 */
+    .work:hover .work-title {
+      opacity: 1;
+    }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 768px) {
+      .portfolio h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Bemage / びめーじ！</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="Portfolio.html">Portfolio</a>
+    <a href="Wish.html">Wishlist</a>
+  </nav>
+</header>
+
+<main>
+  <section class="portfolio">
+    <h2>Portfolio</h2>
+
+    <div class="grid">
+      <!-- 作品1 -->
+      <div class="work">
+        <img src="works/work1.png" alt="Work 1">
+        <div class="work-title">Pixel Weapon Pack</div>
+      </div>
+
+      <!-- 作品2 -->
+      <div class="work">
+        <img src="works/work2.png" alt="Work 2">
+        <div class="work-title">Minecraft UI</div>
+      </div>
+
+      <!-- 作品3 -->
+      <div class="work">
+        <img src="works/work3.png" alt="Work 3">
+        <div class="work-title">Character Design</div>
+      </div>
+
+      <!-- 作品4 -->
+      <div class="work">
+        <img src="works/work4.png" alt="Work 4">
+        <div class="work-title">Icon Collection</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
