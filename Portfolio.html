@@ -26,7 +26,7 @@
       color: #111;
     }
 
-    /* ===== Header ===== */
+    /* ===== Header（Homeと同一） ===== */
     header {
       position: absolute;
       top: 40px;
@@ -62,21 +62,26 @@
       padding: 160px 20px 60px;
       display: flex;
       justify-content: center;
+      align-items: flex-start;
     }
 
+    /* ===== Portfolio Grid（アニメ付き） ===== */
     .portfolio {
       width: 100%;
       max-width: 1000px;
+
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1.2s ease forwards;
     }
 
-    .portfolio h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 40px;
-      text-align: center;
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    /* ===== Grid ===== */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -98,36 +103,35 @@
       transition: transform 0.4s ease;
     }
 
-    /* ホバー時に拡大 */
+    /* ホバーで拡大 */
     .work:hover img {
       transform: scale(1.08);
     }
 
-    /* タイトル */
+    /* タイトル表示 */
     .work-title {
       position: absolute;
       inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: #fff;
-      background: rgba(0,0,0,0.45);
+      background: rgba(0, 0, 0, 0.45);
       opacity: 0;
       transition: opacity 0.3s ease;
       letter-spacing: 0.05em;
     }
 
-    /* ホバー時に表示 */
     .work:hover .work-title {
       opacity: 1;
     }
 
     /* ===== Mobile ===== */
     @media (max-width: 768px) {
-      .portfolio h2 {
-        font-size: 1.6rem;
+      main {
+        padding-top: 140px;
       }
     }
   </style>
@@ -147,28 +151,22 @@
 
 <main>
   <section class="portfolio">
-    <h2>Portfolio</h2>
-
     <div class="grid">
-      <!-- 作品1 -->
       <div class="work">
         <img src="works/work1.png" alt="Work 1">
         <div class="work-title">Pixel Weapon Pack</div>
       </div>
 
-      <!-- 作品2 -->
       <div class="work">
         <img src="works/work2.png" alt="Work 2">
         <div class="work-title">Minecraft UI</div>
       </div>
 
-      <!-- 作品3 -->
       <div class="work">
         <img src="works/work3.png" alt="Work 3">
         <div class="work-title">Character Design</div>
       </div>
 
-      <!-- 作品4 -->
       <div class="work">
         <img src="works/work4.png" alt="Work 4">
         <div class="work-title">Icon Collection</div>
