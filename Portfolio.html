@@ -5,20 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bemage | Portfolio</title>
 
-  <!-- フォント -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -26,7 +22,7 @@
       color: #111;
     }
 
-    /* ===== Header（Homeと同一） ===== */
+    /* ===== Header（Wishlist / Profile と同一） ===== */
     header {
       position: absolute;
       top: 40px;
@@ -59,32 +55,34 @@
     /* ===== Main ===== */
     main {
       min-height: 100vh;
-      padding: 160px 20px 60px;
+      padding: 160px 20px 80px;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
     }
 
-    /* ===== Portfolio Grid（アニメ付き） ===== */
-    .portfolio {
+    /* フェードイン（他ページと共通） */
+    .content {
       width: 100%;
       max-width: 1000px;
-
       opacity: 0;
       transform: translateY(20px);
       animation: fadeIn 1.2s ease forwards;
     }
 
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 48px;
+    }
+
+    /* ===== Portfolio Grid（画像UI） ===== */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 24px;
     }
 
@@ -92,8 +90,8 @@
       position: relative;
       overflow: hidden;
       border-radius: 14px;
-      cursor: pointer;
       background: #000;
+      cursor: pointer;
     }
 
     .work img {
@@ -103,12 +101,10 @@
       transition: transform 0.4s ease;
     }
 
-    /* ホバーで拡大 */
     .work:hover img {
       transform: scale(1.08);
     }
 
-    /* タイトル表示 */
     .work-title {
       position: absolute;
       inset: 0;
@@ -118,7 +114,7 @@
       font-size: 1.05rem;
       font-weight: 600;
       color: #fff;
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0,0,0,0.45);
       opacity: 0;
       transition: opacity 0.3s ease;
       letter-spacing: 0.05em;
@@ -128,10 +124,10 @@
       opacity: 1;
     }
 
-    /* ===== Mobile ===== */
-    @media (max-width: 768px) {
-      main {
-        padding-top: 140px;
+    /* ===== Responsive ===== */
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 1.6rem;
       }
     }
   </style>
@@ -150,30 +146,33 @@
 </header>
 
 <main>
-  <section class="portfolio">
+  <div class="content">
+    <h2>Portfolio</h2>
+
     <div class="grid">
       <div class="work">
-        <img src="works/work1.png" alt="Work 1">
+        <img src="works/work1.png" alt="">
         <div class="work-title">Pixel Weapon Pack</div>
       </div>
 
       <div class="work">
-        <img src="works/work2.png" alt="Work 2">
+        <img src="works/work2.png" alt="">
         <div class="work-title">Minecraft UI</div>
       </div>
 
       <div class="work">
-        <img src="works/work3.png" alt="Work 3">
+        <img src="works/work3.png" alt="">
         <div class="work-title">Character Design</div>
       </div>
 
       <div class="work">
-        <img src="works/work4.png" alt="Work 4">
+        <img src="works/work4.png" alt="">
         <div class="work-title">Icon Collection</div>
       </div>
     </div>
-  </section>
+  </div>
 </main>
 
 </body>
 </html>
+
