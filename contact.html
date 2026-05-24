@@ -281,113 +281,79 @@
 
   <!-- Discord Webhook -->
 
-  <script>
-
-    const webhookURL = "https://discord.com/api/webhooks/1508058419398181036/YU9gXaLxBIm211qoQEuG5C1ZOgekwb1QuOM1GvH8iVQOZg0_xE1ST_2-cX0Z1yTkmrhz";
-
-    document
-      .getElementById("contactForm")
-      .addEventListener("submit", async function(e) {
-
-        e.preventDefault();
-
-        const name = document.getElementById("name").value;
-        const company = document.getElementById("company").value;
-        const email = document.getElementById("email").value;
-        const site = document.getElementById("site").value;
-        const message = document.getElementById("message").value;
-
-        const payload = {
-
-          username: "Bemage Contact",
-
-          embeds: [
-            {
-              title: "📩 新しいお問い合わせ",
-
-              color: 0x111111,
-
-              fields: [
-
-                {
-                  name: "👤 お名前",
-                  value: name || "なし",
-                  inline: false
-                },
-
-                {
-                  name: "🏢 会社名・団体名",
-                  value: company || "なし",
-                  inline: false
-                },
-
-                {
-                  name: "📧 メールアドレス",
-                  value: email || "なし",
-                  inline: false
-                },
-
-                {
-                  name: "🌐 サイトURL",
-                  value: site || "なし",
-                  inline: false
-                },
-
-                {
-                  name: "📝 お問い合わせ内容",
-                  value: message || "なし",
-                  inline: false
-                }
-
-              ],
-
-              footer: {
-                text: "Bemage Contact Form"
-              },
-
-              timestamp: new Date()
-
-            }
-          ]
-        };
-
 <script>
-
-console.log("script loaded");
 
 const webhookURL = "https://discord.com/api/webhooks/1508058419398181036/YU9gXaLxBIm211qoQEuG5C1ZOgekwb1QuOM1GvH8iVQOZg0_xE1ST_2-cX0Z1yTkmrhz";
 
-const form = document.getElementById("contactForm");
-
-form.addEventListener("submit", async (e) => {
+document.getElementById("contactForm")
+.addEventListener("submit", function(e) {
 
   e.preventDefault();
 
-  alert("ボタン押された");
+  const name = document.getElementById("name").value;
+  const company = document.getElementById("company").value;
+  const email = document.getElementById("email").value;
+  const site = document.getElementById("site").value;
+  const message = document.getElementById("message").value;
 
   const payload = {
-    content: "テスト送信"
+    username: "Bemage Contact",
+
+    embeds: [
+      {
+        title: "📩 新しいお問い合わせ",
+
+        color: 0x111111,
+
+        fields: [
+
+          {
+            name: "👤 お名前",
+            value: name || "なし"
+          },
+
+          {
+            name: "🏢 会社名・団体名",
+            value: company || "なし"
+          },
+
+          {
+            name: "📧 メールアドレス",
+            value: email || "なし"
+          },
+
+          {
+            name: "🌐 サイトURL",
+            value: site || "なし"
+          },
+
+          {
+            name: "📝 お問い合わせ内容",
+            value: message || "なし"
+          }
+
+        ]
+      }
+    ]
   };
 
-  try {
+  fetch(webhookURL, {
 
-    await fetch(webhookURL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload),
-      mode: "no-cors"
-    });
+    method: "POST",
 
-    alert("送信成功");
+    headers: {
+      "Content-Type": "application/json"
+    },
 
-  } catch (err) {
+    body: JSON.stringify(payload),
 
-    console.error(err);
-    alert("失敗");
+    mode: "no-cors"
 
-  }
+  });
+
+  alert("送信完了しました！");
+
+  document.getElementById("contactForm").reset();
 
 });
 
