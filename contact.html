@@ -351,24 +351,26 @@
           ]
         };
 
-        try {
+try {
 
-          await fetch(webhookURL, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
-          });
+  await fetch(webhookURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  });
 
-          alert("送信しました！");
-          document.getElementById("contactForm").reset();
+  alert("送信完了しました！");
+  document.getElementById("contactForm").reset();
 
-        } catch (error) {
+} catch (error) {
 
-          alert("送信に失敗しました");
+  console.error(error);
+  alert("送信に失敗しました");
 
-        }
+}
 
       });
 
