@@ -351,30 +351,44 @@
           ]
         };
 
-try {
+<script>
 
-  await fetch(webhookURL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(payload),
-    mode: "no-cors"
-  });
+console.log("script loaded");
 
-  alert("送信完了しました！");
-  document.getElementById("contactForm").reset();
+const webhookURL = "https://discord.com/api/webhooks/1508058419398181036/YU9gXaLxBIm211qoQEuG5C1ZOgekwb1QuOM1GvH8iVQOZg0_xE1ST_2-cX0Z1yTkmrhz";
 
-} catch (error) {
+const form = document.getElementById("contactForm");
 
-  console.error(error);
-  alert("送信に失敗しました");
+form.addEventListener("submit", async (e) => {
 
-}
+  e.preventDefault();
 
-      });
+  alert("ボタン押された");
 
-  </script>
+  const payload = {
+    content: "テスト送信"
+  };
 
-</body>
-</html>
+  try {
+
+    await fetch(webhookURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload),
+      mode: "no-cors"
+    });
+
+    alert("送信成功");
+
+  } catch (err) {
+
+    console.error(err);
+    alert("失敗");
+
+  }
+
+});
+
+</script>
