@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Bemage</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#f9f9f9;
+      color:#111;
+    }
+
+    /* ===== Header ===== */
+
+    header{
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      margin: 40px auto 0;
+      padding: 0 20px;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    header h1{
+      font-size:1.4rem;
+      font-weight:600;
+    }
+
+    nav a{
+      margin-left:20px;
+      text-decoration:none;
+      color:#666;
+      font-size:0.95rem;
+      transition:0.2s ease;
+    }
+
+    nav a:hover{
+      color:#111;
+    }
+
+    /* ===== Page Title ===== */
+
+    .page-title{
+      max-width:1000px;
+      margin:80px auto 70px;
+      padding:0 20px;
+    }
+
+    .page-title h2{
+      font-size:3.2rem;
+      font-weight:700;
+    }
+
+    .reply-text{
+      margin-top:14px;
+      color:#666;
+      font-size:1rem;
+    }
+
+    /* ===== Form ===== */
+
+    .container{
+      max-width:1000px;
+      margin:auto;
+      padding:0 20px 100px;
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:46px;
+    }
+
+    .form-group{
+      display:grid;
+      grid-template-columns:220px 1fr;
+      align-items:start;
+      gap:30px;
+    }
+
+    .form-group label{
+      font-size:1.1rem;
+      font-weight:600;
+      padding-top:18px;
+      border-bottom:1px solid #333;
+      padding-bottom:10px;
+    }
+
+    input,
+    textarea{
+      width:100%;
+      padding:18px 20px;
+      border:1px solid #444;
+      background:#fff;
+      font-size:1rem;
+      outline:none;
+      transition:0.2s ease;
+      font-family:'Inter',sans-serif;
+    }
+
+    input:focus,
+    textarea:focus{
+      border-color:#111;
+    }
+
+    textarea{
+      min-height:220px;
+      resize:vertical;
+    }
+
+    .submit-wrap{
+      display:flex;
+      justify-content:flex-end;
+      margin-top:10px;
+    }
+
+    button{
+      padding:16px 42px;
+      border:none;
+      background:#111;
+      color:#fff;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.2s ease;
+    }
+
+    button:hover{
+      opacity:0.85;
+    }
+
+    /* ===== Mobile ===== */
+
+    @media(max-width:768px){
+
+      header{
+        flex-direction:column;
+        gap:20px;
+        align-items:flex-start;
+      }
+
+      nav{
+        display:flex;
+        flex-wrap:wrap;
+      }
+
+      nav a{
+        margin-left:0;
+        margin-right:18px;
+      }
+
+      .page-title{
+        margin:60px auto 50px;
+      }
+
+      .page-title h2{
+        font-size:2.5rem;
+      }
+
+      .form-group{
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+
+      .form-group label{
+        padding-top:0;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+
+  <header>
+
+    <h1>Bemage / びめーじ！</h1>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <a href="Portfolio.html">Portfolio</a>
+      <a href="Wish.html">Wishlist</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </header>
+
+  <!-- Title -->
+
+  <div class="page-title">
+    <h2>Contact</h2>
+    <p class="reply-text">返信はdiscordを通して行われます。</p>
+    <p class="reply-text">いたずら目的での使用はご遠慮ください</p>
+  </div>
+
+  <!-- Form -->
+
+  <div class="container">
+
+    <form id="contactForm">
+
+      <div class="form-group">
+        <label>discord name *</label>
+
+        <input
+          type="text"
+          id="Discord Name"
+          placeholder="please enter your discord user name."
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label>company</label>
+
+        <input
+          type="text"
+          id="company"
+          placeholder="company"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>mailadress *</label>
+
+        <input
+          type="email"
+          id="email"
+          placeholder="example@gmail.com"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label>websiteURL</label>
+
+        <input
+          type="url"
+          id="site"
+          placeholder="https://example.com"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Inquiry details *</label>
+
+        <textarea
+          id="message"
+          placeholder="please enter your Inquiry details"
+          required
+        ></textarea>
+      </div>
+
+      <div class="submit-wrap">
+        <button type="submit">submit</button>
+      </div>
+
+    </form>
+
+  </div>
+
+  <!-- Discord Webhook -->
+
+  <script>
+
+    const webhookURL = "https://discord.com/api/webhooks/1508058419398181036/YU9gXaLxBIm211qoQEuG5C1ZOgekwb1QuOM1GvH8iVQOZg0_xE1ST_2-cX0Z1yTkmrhz";
+
+    document
+      .getElementById("contactForm")
+      .addEventListener("submit", async function(e) {
+
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const company = document.getElementById("company").value;
+        const email = document.getElementById("email").value;
+        const site = document.getElementById("site").value;
+        const message = document.getElementById("message").value;
+
+        const payload = {
+
+          username: "Bemage Contact",
+
+          embeds: [
+            {
+              title: "📩 新しいお問い合わせ",
+
+              color: 0x111111,
+
+              fields: [
+
+                {
+                  name: "👤 お名前",
+                  value: name || "なし",
+                  inline: false
+                },
+
+                {
+                  name: "🏢 会社名・団体名",
+                  value: company || "なし",
+                  inline: false
+                },
+
+                {
+                  name: "📧 メールアドレス",
+                  value: email || "なし",
+                  inline: false
+                },
+
+                {
+                  name: "🌐 サイトURL",
+                  value: site || "なし",
+                  inline: false
+                },
+
+                {
+                  name: "📝 お問い合わせ内容",
+                  value: message || "なし",
+                  inline: false
+                }
+
+              ],
+
+              footer: {
+                text: "Bemage Contact Form"
+              },
+
+              timestamp: new Date()
+
+            }
+          ]
+        };
+
+        try {
+
+          await fetch(webhookURL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          alert("送信しました！");
+          document.getElementById("contactForm").reset();
+
+        } catch (error) {
+
+          alert("送信に失敗しました");
+
+        }
+
+      });
+
+  </script>
+
+</body>
+</html>
